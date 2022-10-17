@@ -49,3 +49,12 @@ C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\obj\Debug\n
 C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\obj\Debug\net6.0\ref\H3_EFCORE_SQLITE.dll
 C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Humanizer.dll
 C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\appsettings.json
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\Danny\OneDrive\Dokumenter\Special Projects\H3_EFCORE_SQLITE\bin\Debug\net6.0\Serilog.dll

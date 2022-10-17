@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace H3_EFCORE_SQLITE.Migrations
 {
-    [DbContext(typeof(BloggingContext))]
+    [DbContext(typeof(ProjectManagerContext))]
     [Migration("20221017093450_InitialCreate")]
     partial class InitialCreate
     {

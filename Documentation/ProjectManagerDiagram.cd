@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="H3_EFCORE_SQLITE.Data.Contexts.ProjectManagerContext">
+    <Position X="13.25" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Data\Contexts\ProjectManagerContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3_EFCORE_SQLITE.Data.Contexts.Todo">
+    <Position X="13.25" Y="3" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Data\Contexts\ProjectManagerContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3_EFCORE_SQLITE.Data.Contexts.Tasks">
+    <Position X="13.25" Y="4.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAgAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Data\Contexts\ProjectManagerContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3_EFCORE_SQLITE.Data.SeedDatabase.Seed">
+    <Position X="0.5" Y="1.75" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Data\SeedDatabase\Seed.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3_EFCORE_SQLITE.Logic">
+    <Position X="3.75" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="H3_EFCORE_SQLITE.Program">
+    <Position X="0.5" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
