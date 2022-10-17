@@ -13,7 +13,7 @@ namespace H3_EFCORE_SQLITE.Data.SeedDatabase {
 
             using var db = new ProjectManagerContext();
 
-            db.Todo.AddRange(
+            db.Todos.AddRange(
 
                new Todo {
                    TodoId = 1,
@@ -30,7 +30,7 @@ namespace H3_EFCORE_SQLITE.Data.SeedDatabase {
               new Todo {
                   TodoId = 3,
                   Name = "Create agenda",
-                  IsComplete = false
+                  IsComplete = true,
               },
 
               new Todo {
@@ -42,21 +42,21 @@ namespace H3_EFCORE_SQLITE.Data.SeedDatabase {
               new Todo {
                   TodoId = 5,
                   Name = "Talk to employees",
-                  IsComplete = false
+                  IsComplete = true
               },
 
               new Todo {
                   TodoId = 6,
                   Name = "Get list of company hardware",
-                  IsComplete = false
+                  IsComplete = true
               }
            );
 
             db.SaveChanges();
 
 
-            var taskList1 = db.Todo.Where(x => x.TodoId <= 3).ToList();
-            var taskList2 = db.Todo.Where(x => x.TodoId >= 4).ToList();
+            var taskList1 = db.Todos.Where(x => x.TodoId <= 3).ToList();
+            var taskList2 = db.Todos.Where(x => x.TodoId >= 4).ToList();
 
 
             db.Tasks.AddRange(

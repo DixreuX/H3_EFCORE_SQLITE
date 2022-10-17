@@ -15,8 +15,11 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public string SqliteDbpath { get => sqliteDbpath; set => sqliteDbpath = value; }
 
 
-        public DbSet<Todo> Todo { get; set; }
+        public DbSet<Todo> Todos { get; set; }
         public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<TeamWorker> TeamWorkers { get; set; }
+
 
         public string DbPath { get; }
         
@@ -24,6 +27,13 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public ProjectManagerContext() {
 
             DbPath = System.IO.Path.Join(sqliteDbpath, "ProjectManager.db");
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
+            modelBuilder.Entity<User>().HasKey(p => new { p.Email });
+            modelBuilder.Entity<TeamWorker>().HasKey(p => new { p.TeamId, p.WorkerId });
+            modelBuilder.Entity<Tasks>().HasKey(p => new { p.TaskId });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={DbPath}");
@@ -40,11 +50,22 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
 
     public class Tasks {
 
-        [Key]
         public int TaskId { get; set; }
 
         public string Name { get; set; }
 
         public List<Todo> Todos { get; set; }
+    }
+
+    public class User {
+
+        public string Email { get; set; }
+    }
+
+    public class TeamWorker {
+
+        public int TeamId { get; set; }
+
+        public int WorkerId { get; set; }
     }
 }

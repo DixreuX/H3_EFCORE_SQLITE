@@ -16,7 +16,7 @@ namespace H3_EFCORE_SQLITE {
             using var db = new ProjectManagerContext();
 
             Seed seed = new Seed();
-            Logic logic = new Logic();
+            Commands command = new Commands();
 
 
             if (File.Exists(Path.Join(db.SqliteDbpath, "ProjectManager.db"))) {
@@ -39,8 +39,8 @@ namespace H3_EFCORE_SQLITE {
 
 
 
-            logic.PrintTasksAndTodos();            
-          
+            command.PrintTasksAndTodos();
+            command.PrintIncompleteTasksAndTodos();
             
 
            

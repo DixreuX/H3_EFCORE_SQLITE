@@ -3,7 +3,7 @@
   <Class Name="H3_EFCORE_SQLITE.Data.Contexts.ProjectManagerContext">
     <Position X="13.25" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAQAAAAAAAAAAAAAAAIAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAQAAAAABAAAAAAAAAIAAAAABAAAIAAAAAAA=</HashCode>
       <FileName>Data\Contexts\ProjectManagerContext.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -28,11 +28,11 @@
       <FileName>Data\SeedDatabase\Seed.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="H3_EFCORE_SQLITE.Logic">
+  <Class Name="H3_EFCORE_SQLITE.Commands">
     <Position X="3.75" Y="0.5" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Logic.cs</FileName>
+      <HashCode>BAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Commands.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="H3_EFCORE_SQLITE.Program">

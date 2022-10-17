@@ -3,6 +3,7 @@ using System;
 using H3_EFCORE_SQLITE.Data.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace H3_EFCORE_SQLITE.Migrations
 {
     [DbContext(typeof(ProjectManagerContext))]
-    partial class BloggingContextModelSnapshot : ModelSnapshot
+    [Migration("20221017124835_NewDbPathThree")]
+    partial class NewDbPathThree
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
@@ -30,19 +32,6 @@ namespace H3_EFCORE_SQLITE.Migrations
                     b.HasKey("TaskId");
 
                     b.ToTable("Tasks");
-                });
-
-            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.TeamWorker", b =>
-                {
-                    b.Property<int>("TeamId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<int>("WorkerId")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("TeamId", "WorkerId");
-
-                    b.ToTable("TeamWorkers");
                 });
 
             modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Todo", b =>
@@ -65,17 +54,7 @@ namespace H3_EFCORE_SQLITE.Migrations
 
                     b.HasIndex("TasksTaskId");
 
-                    b.ToTable("Todos");
-                });
-
-            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.User", b =>
-                {
-                    b.Property<string>("Email")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Email");
-
-                    b.ToTable("Users");
+                    b.ToTable("Todo");
                 });
 
             modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Todo", b =>
