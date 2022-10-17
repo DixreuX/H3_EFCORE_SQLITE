@@ -17,7 +17,8 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
 
         public DbSet<Todo> Todos { get; set; }
         public DbSet<Tasks> Tasks { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Worker> Workers { get; set; }
         public DbSet<TeamWorker> TeamWorkers { get; set; }
 
 
@@ -31,7 +32,6 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
 
-            modelBuilder.Entity<User>().HasKey(p => new { p.Email });
             modelBuilder.Entity<TeamWorker>().HasKey(p => new { p.TeamId, p.WorkerId });
             modelBuilder.Entity<Tasks>().HasKey(p => new { p.TaskId });
         }
@@ -57,9 +57,22 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public List<Todo> Todos { get; set; }
     }
 
-    public class User {
+    public class Team {
 
-        public string Email { get; set; }
+        public int TeamId { get; set; }
+
+        public string Name { get; set; }
+
+        public List<Worker> Workers { get; set; }
+    }
+
+    public class Worker {
+
+        public int WorkerId { get; set; }
+
+        public string Name { get; set; }
+
+        public List<Team> Teams { get; set; }
     }
 
     public class TeamWorker {
