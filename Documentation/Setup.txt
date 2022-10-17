@@ -1,0 +1,8 @@
+﻿
+Project Manager (H3, SQLite, EF Core)
+
+
+    [Command Line]
+    dotnet ef migrations add <name of migration>
+    [Package Manager console]
+    add-migration <name of migration>
