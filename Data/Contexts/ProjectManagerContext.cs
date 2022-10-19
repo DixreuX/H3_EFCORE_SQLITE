@@ -11,12 +11,13 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
 
     public class ProjectManagerContext : DbContext {
 
-        string sqliteDbpath = "C:\\Users\\Danny\\OneDrive\\Dokumenter\\Special Projects\\H3_EFCORE_SQLITE\\Data\\Database\\";
-        public string SqliteDbpath { get => sqliteDbpath; set => sqliteDbpath = value; }
+        //string sqliteDbpath = "C:\\Users\\Danny\\OneDrive\\Dokumenter\\Special Projects\\H3_EFCORE_SQLITE\\Data\\Database\\";
+        string sqliteDbPath = "C:\\Users\\Bruger 1\\Source\\Repos\\DixreuX\\H3_EFCORE_SQLITE\\Data\\Database\\";
+        public string SqliteDbpath { get => sqliteDbPath; set => sqliteDbPath = value; }
 
 
         public DbSet<Todo> Todos { get; set; }
-        public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<Task> Tasks { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Worker> Workers { get; set; }
         public DbSet<TeamWorker> TeamWorkers { get; set; }
@@ -27,13 +28,13 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
 
         public ProjectManagerContext() {
 
-            DbPath = System.IO.Path.Join(sqliteDbpath, "ProjectManager.db");
+            DbPath = System.IO.Path.Join(sqliteDbPath, "ProjectManager.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
 
             modelBuilder.Entity<TeamWorker>().HasKey(p => new { p.TeamId, p.WorkerId });
-            modelBuilder.Entity<Tasks>().HasKey(p => new { p.TaskId });
+            modelBuilder.Entity<Task>().HasKey(p => new { p.TaskId });
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options) => options.UseSqlite($"Data Source={DbPath}");
@@ -48,7 +49,7 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public bool IsComplete { get; set; }
     }
 
-    public class Tasks {
+    public class Task {
 
         public int TaskId { get; set; }
 
@@ -64,6 +65,10 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public string Name { get; set; }
 
         public List<Worker> Workers { get; set; }
+
+        public Task CurrentTask { get; set; }
+
+        public List<Task> Tasks { get; set; }
     }
 
     public class Worker {
@@ -73,6 +78,10 @@ namespace H3_EFCORE_SQLITE.Data.Contexts {
         public string Name { get; set; }
 
         public List<Team> Teams { get; set; }
+      
+        public Todo CurrentTodo { get; set; }
+
+        public List<Todo> Todos { get; set; }
     }
 
     public class TeamWorker {

@@ -23,19 +23,20 @@ namespace H3_EFCORE_SQLITE {
 
                 Console.WriteLine("\n Database exists... Continuing \n");
                 Thread.Sleep(1000);
-                Console.WriteLine("\n Wiping existing data... \n");
-                db.Database.ExecuteSqlRaw("PRAGMA foreign_keys=off");
-                db.Database.ExecuteSqlRaw("DELETE FROM Tasks");
-                db.Database.ExecuteSqlRaw("DELETE FROM Todos");
-                db.Database.ExecuteSqlRaw("DELETE FROM TeamWorkers");
-                db.Database.ExecuteSqlRaw("DELETE FROM TeamWorker");
-                db.Database.ExecuteSqlRaw("DELETE FROM Teams");
-                db.Database.ExecuteSqlRaw("DELETE FROM Workers");
-                db.Database.ExecuteSqlRaw("PRAGMA foreign_keys=on");
-                Thread.Sleep(2000);
-                Console.WriteLine("\n Seeding data... \n");
-                seed.Database();
-                Thread.Sleep(1000);          
+                //Console.WriteLine("\n Wiping existing data... \n");
+                //db.Database.ExecuteSqlRaw("PRAGMA foreign_keys=off");
+                //db.Database.ExecuteSqlRaw("DELETE FROM Tasks");
+                //db.Database.ExecuteSqlRaw("DELETE FROM Todos");
+                //db.Database.ExecuteSqlRaw("DELETE FROM TeamWorkers");
+                //db.Database.ExecuteSqlRaw("DELETE FROM TeamWorker");
+                //db.Database.ExecuteSqlRaw("DELETE FROM Teams");
+                //db.Database.ExecuteSqlRaw("DELETE FROM Workers");
+                //db.Database.ExecuteSqlRaw("PRAGMA foreign_keys=on");
+                //Thread.Sleep(2000);
+                //Console.WriteLine("\n Seeding data... \n");
+                //seed.Database();
+                Thread.Sleep(1000);
+                Console.Clear();
             }
             else {
 
@@ -48,17 +49,12 @@ namespace H3_EFCORE_SQLITE {
                 Console.WriteLine(" Seeding data...");
                 seed.Database();
                 Thread.Sleep(1000);
+                Console.Clear();
             }
                 
-
-
-
-            command.PrintTasksAndTodos();
-            command.PrintIncompleteTasksAndTodos();
-            
-
-           
-
+            //command.PrintTasksAndTodos();
+            //command.PrintIncompleteTasksAndTodos();
+            command.PrintTeamCurrentTask();
 
             Console.ReadKey();
         }

@@ -14,6 +14,9 @@ namespace H3_EFCORE_SQLITE {
 
         public void PrintTasksAndTodos() {
 
+            Console.WriteLine("\n Printing all tasks and todo's... \n");
+            Thread.Sleep(1000);
+
             using var db = new ProjectManagerContext();
 
             var tasks = db.Tasks.Include(task => task.Todos);
@@ -27,16 +30,16 @@ namespace H3_EFCORE_SQLITE {
                     Console.WriteLine($" -  {todo.Name}");
                 }
             }
+
+            Console.WriteLine("\n");
         }
 
         public void PrintIncompleteTasksAndTodos() {
 
-            Console.WriteLine("\n Finding tasks with incompleted todo's \n");
-            
+            Console.WriteLine("\n Finding tasks with incompleted todo's... \n");
+            Thread.Sleep(1000);
 
             using var db = new ProjectManagerContext();
-
-            //var todos = db.Todo.Where(x => x.IsComplete != true);
 
             var tasks = db.Tasks.Include(task => task.Todos.Where(x => x.IsComplete == false)); 
 
@@ -54,6 +57,32 @@ namespace H3_EFCORE_SQLITE {
                     Console.WriteLine($" -  {todo.Name} | Is Completed: {isCompleted}");
                 }
             }
+
+            Console.WriteLine("\n");
         }
+
+        public void PrintTeamCurrentTask()
+        {
+            Console.WriteLine("\n Printing each team's current task... \n");
+            Thread.Sleep(1000);
+
+            using var db = new ProjectManagerContext();
+
+            var teamsAndTasks = db.Teams.Include(team => team.Tasks).ThenInclude(task => task.Todos).ToList();
+            
+            
+
+            Thread.Sleep(1000);
+
+            foreach (var team in teamsAndTasks) {
+
+                Console.WriteLine($"\n Team: {team.Name}");
+
+                foreach (var task in team.Tasks)
+                {
+                    Console.WriteLine($"\n Task name: {task}");
+                }                
+            }
+        } 
     }
 }

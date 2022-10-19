@@ -17,7 +17,7 @@ namespace H3_EFCORE_SQLITE.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.10");
 
-            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Tasks", b =>
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Task", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -27,7 +27,12 @@ namespace H3_EFCORE_SQLITE.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
+                    b.Property<int?>("TeamId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("TaskId");
+
+                    b.HasIndex("TeamId");
 
                     b.ToTable("Tasks");
                 });
@@ -38,11 +43,16 @@ namespace H3_EFCORE_SQLITE.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CurrentTaskTaskId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("TeamId");
+
+                    b.HasIndex("CurrentTaskTaskId");
 
                     b.ToTable("Teams");
                 });
@@ -73,12 +83,17 @@ namespace H3_EFCORE_SQLITE.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int?>("TasksTaskId")
+                    b.Property<int?>("TaskId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("WorkerId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("TodoId");
 
-                    b.HasIndex("TasksTaskId");
+                    b.HasIndex("TaskId");
+
+                    b.HasIndex("WorkerId");
 
                     b.ToTable("Todos");
                 });
@@ -89,11 +104,16 @@ namespace H3_EFCORE_SQLITE.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("CurrentTodoTodoId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.HasKey("WorkerId");
+
+                    b.HasIndex("CurrentTodoTodoId");
 
                     b.ToTable("Workers");
                 });
@@ -113,11 +133,44 @@ namespace H3_EFCORE_SQLITE.Migrations
                     b.ToTable("TeamWorker");
                 });
 
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Task", b =>
+                {
+                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Team", null)
+                        .WithMany("Tasks")
+                        .HasForeignKey("TeamId");
+                });
+
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Team", b =>
+                {
+                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Task", "CurrentTask")
+                        .WithMany()
+                        .HasForeignKey("CurrentTaskTaskId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CurrentTask");
+                });
+
             modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Todo", b =>
                 {
-                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Tasks", null)
+                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Task", null)
                         .WithMany("Todos")
-                        .HasForeignKey("TasksTaskId");
+                        .HasForeignKey("TaskId");
+
+                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Worker", null)
+                        .WithMany("Todos")
+                        .HasForeignKey("WorkerId");
+                });
+
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Worker", b =>
+                {
+                    b.HasOne("H3_EFCORE_SQLITE.Data.Contexts.Todo", "CurrentTodo")
+                        .WithMany()
+                        .HasForeignKey("CurrentTodoTodoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CurrentTodo");
                 });
 
             modelBuilder.Entity("TeamWorker", b =>
@@ -135,7 +188,17 @@ namespace H3_EFCORE_SQLITE.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Tasks", b =>
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Task", b =>
+                {
+                    b.Navigation("Todos");
+                });
+
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Team", b =>
+                {
+                    b.Navigation("Tasks");
+                });
+
+            modelBuilder.Entity("H3_EFCORE_SQLITE.Data.Contexts.Worker", b =>
                 {
                     b.Navigation("Todos");
                 });
