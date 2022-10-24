@@ -68,8 +68,8 @@ namespace H3_EFCORE_SQLITE {
 
             using var db = new ProjectManagerContext();
 
-            var teamsAndTasks = db.Teams.Include(team => team.Tasks).ThenInclude(task => task.Todos).ToList();
-            
+            //var teamsAndTasks = db.Teams.Include(team => team.Tasks).ThenInclude(task => task.Todos).ToList();
+            var teamsAndTasks = db.Teams.Include(team => team.CurrentTask).ToList();
             
 
             Thread.Sleep(1000);
@@ -78,9 +78,9 @@ namespace H3_EFCORE_SQLITE {
 
                 Console.WriteLine($"\n Team: {team.Name}");
 
-                foreach (var task in team.Tasks)
+                foreach (var currentTask in team.Tasks)
                 {
-                    Console.WriteLine($"\n Task name: {task}");
+                    Console.WriteLine($"\n Task name: {currentTask.Name}");
                 }                
             }
         } 

@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <Folder Include="Data\Database\" />
+    <Folder Include="Data\API\" />
     <Folder Include="Models\" />
   </ItemGroup>
 
