@@ -51,10 +51,10 @@ namespace H3_EFCORE_SQLITE {
                 Thread.Sleep(1000);
                 Console.Clear();
             }
-                
-            //command.PrintTasksAndTodos();
-            //command.PrintIncompleteTasksAndTodos();
-            command.PrintTeamCurrentTask();
+
+            command.PrintTasksAndTodos();
+            command.PrintIncompleteTasksAndTodos();
+            //command.PrintTeamCurrentTask();
 
             Console.ReadKey();
         }

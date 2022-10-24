@@ -63,26 +63,26 @@ namespace H3_EFCORE_SQLITE {
 
         public void PrintTeamCurrentTask()
         {
-            Console.WriteLine("\n Printing each team's current task... \n");
-            Thread.Sleep(1000);
+            //Console.WriteLine("\n Printing each team's current task... \n");
+            //Thread.Sleep(1000);
 
-            using var db = new ProjectManagerContext();
+            //using var db = new ProjectManagerContext();
 
-            //var teamsAndTasks = db.Teams.Include(team => team.Tasks).ThenInclude(task => task.Todos).ToList();
-            var teamsAndTasks = db.Teams.Include(team => team.CurrentTask).ToList();
+            ////var teamsAndTasks = db.Teams.Include(team => team.Tasks).ThenInclude(task => task.Todos).ToList();
+            //var teamsAndTasks = db.Teams.Include(team => team.CurrentTask).ToList();
             
 
-            Thread.Sleep(1000);
+            //Thread.Sleep(1000);
 
-            foreach (var team in teamsAndTasks) {
+            //foreach (var team in teamsAndTasks) {
 
-                Console.WriteLine($"\n Team: {team.Name}");
+            //    Console.WriteLine($"\n Team: {team.Name}");
 
-                foreach (var currentTask in team.Tasks)
-                {
-                    Console.WriteLine($"\n Task name: {currentTask.Name}");
-                }                
-            }
+            //    foreach (var currentTask in team.Tasks)
+            //    {
+            //        Console.WriteLine($"\n Task name: {currentTask.Name}");
+            //    }                
+            //}
         } 
     }
 }

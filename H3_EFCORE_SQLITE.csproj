@@ -8,6 +8,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appsettings.json" />
   </ItemGroup>
 
@@ -32,8 +38,6 @@
 
   <ItemGroup>
     <Folder Include="Data\Database\" />
-    <Folder Include="Data\API\" />
-    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>
